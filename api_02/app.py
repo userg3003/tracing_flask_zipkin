@@ -13,13 +13,13 @@ def default_handler(encoded_span):
     body = encoded_span
     app.logger.debug("body %s", body)
     # return requests.post(
-    #     "http://zipkin:9411/api/v1/spans",
+    #     "http://192.168.10.127:9411/api/v1/spans",
     #     data=body,
     #     headers={'Content-Type': 'application/x-thrift'},
     # )
 
     return requests.post(
-        "http://zipkin:9411/api/v2/spans",
+        "http://192.168.10.127:9411/api/v2/spans",
         data=body,
         headers={'Content-Type': 'application/json'},
     )
