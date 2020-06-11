@@ -3,6 +3,7 @@ import requests
 from py_zipkin.zipkin import zipkin_span, create_http_headers_for_new_span, ZipkinAttrs, Kind, zipkin_client_span
 from py_zipkin.request_helpers import create_http_headers
 from py_zipkin.encoding import Encoding
+from loguru import logger
 
 
 app = Flask(__name__)
@@ -10,7 +11,7 @@ app = Flask(__name__)
 
 def default_handler(encoded_span):
     body = encoded_span
-
+    logger.debug(f"")
     # decoded = _V1ThriftDecoder.decode_spans(encoded_span)
     app.logger.debug("body %s", body)
 
